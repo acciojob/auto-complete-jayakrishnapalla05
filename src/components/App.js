@@ -27,7 +27,7 @@ const App = () => {
         <input type="text" value={fruits} onChange={(e)=>ShowSuggestions(e)}/>
         <ul>
           {
-            totalFruits.map((item,index)=>{
+            fruits.map((item,index)=>{
               <li key={index}>{item}</li>
             })
           }
