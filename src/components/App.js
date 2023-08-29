@@ -1,35 +1,32 @@
 
-import React,{useState} from "react";
+import React, { useState } from "react";
 import './../styles/App.css';
 
 const App = () => {
-  const totalFruits=["apple", "banana", "cherry", "date", "elderberry", "fig"];
+  const totalFruits = ["apple", "banana", "cherry", "date", "elderberry", "fig"]
 
-  const [fruits,setFruits]=useState(totalFruits);
+  let [fruits,setfruits] = useState(totalFruits);
+  console.log(fruits);
 
-  const ShowSuggestions=(e)=>{
-    const arr=[];
-    const result=totalFruits.filter((value)=>{
+  const showSuggestion= (e)=>{
+    let filteredFruits = [];
+    filteredFruits = totalFruits.filter((value)=>{
       return value.toLowerCase().includes(e.target.value);
     })
-    setFruits(result);
+    setfruits(filteredFruits);
   }
-
-
-
-
-
 
   return (
     <div>
         {/* Do not remove the main div */}
+        {/* <h1>Hello...</h1>b */}
         <h1>Search item</h1>
-        <input type="text" value={fruits} onChange={(e)=>ShowSuggestions(e)}/>
+        <input type="text" onChange={(e)=>showSuggestion(e)}/>
         <ul>
-          {
-            fruits.map((item,index)=>{
-              <li key={index}>{item}</li>
-            })
+          {      
+            fruits.map((value,index)=>(
+              <li key={index}>{value}</li>
+            ))
           }
         </ul>
     </div>
